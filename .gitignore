@@ -4,3 +4,5 @@ secrets.json
 client/public/bundle.js
 client/public/bundle.js.LICENSE.txt
 bundle.css
+server/utils/secrets.json
+server/utils/cookiesecret.json
