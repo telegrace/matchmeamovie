@@ -1,3 +1,106 @@
 body {
-    background-color: ghostwhite;
+    margin: 0;
+    box-sizing: border-box;
+    background-color: whitesmoke;
+    color: #fec87e;
+    color: #d9d9f4;
+    color: #fea3e8;
+    color: #012314;
+    color: #00d0dd;
+    font-family: "Courier New", Courier, monospace;
+    text-align: center;
+}
+
+.topbar {
+    width: 99vw;
+    height: 100px;
+    background-color: #fec87e;
+    margin: 5px;
+}
+
+#logo img {
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+    float: left;
+}
+
+html body main div#carousel {
+    margin: 0 auto;
+    height: 300px;
+    width: 400px;
+    background: grey;
+}
+
+#registration h3 {
+    margin: 5px;
+}
+
+input {
+    border: solid black 1px;
+    margin: 5px;
+    padding: 3px;
+}
+
+div#welcome button {
+    margin-top: 20px;
+}
+
+.profile-pic img#right-corner {
+    width: 90px;
+    height: 90px;
+    float: right;
+    margin: 5px;
+    border-radius: 50%;
+}
+
+div.nav-menu {
+    width: 200px;
+    height: 250px;
+    margin: 10px;
+    padding: 10px;
+    border: black solid 1px;
+    background: #d9d9f4;
+    text-align: right;
+    float: right;
+}
+#top-ten {
+    width: 200px;
+    height: 250px;
+    margin: 10px;
+    padding: 10px;
+    border: black solid 1px;
+    background: #d9d9f4;
+    text-align: right;
+    float: right;
+    clear: right;
+}
+a {
+    margin: 5px;
+    line-height: 50px;
+    padding: 5px;
+    background-color: white;
+    color: black;
+    border: black solid 1px;
+    text-decoration: none;
+}
+a:hover {
+    background-color: #fec87e;
+    color: black;
+}
+
+button {
+    margin: 5px;
+    padding: 3px;
+    background-color: white;
+    border: black solid 1px;
+}
+
+button:hover {
+    background-color: #fec87e;
+    color: black;
+}
+
+img {
+    object-fit: cover;
 }

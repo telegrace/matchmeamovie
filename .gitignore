@@ -4,5 +4,7 @@ secrets.json
 client/public/bundle.js
 client/public/bundle.js.LICENSE.txt
 bundle.css
-server/utils/secrets.json
-server/utils/cookiesecret.json
+server/config/secrets.json
+server/config/cookiesecret.json
+server/config/themoviedb_key.json
+notes

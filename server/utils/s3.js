@@ -1,6 +1,3 @@
-//DON'T TOUCHE THIS
-//MIDDLEWARE FUNCTION
-
 const aws = require("aws-sdk");
 const fs = require("fs");
 
@@ -8,7 +5,7 @@ let secrets;
 if (process.env.NODE_ENV == "production") {
     secrets = process.env; // in production the secrets are environment variables
 } else {
-    secrets = require("./secrets"); // in dev they are in secrets.json which is listed in .gitignore
+    secrets = require("../config/secrets.json"); // in dev they are in secrets.json which is listed in .gitignore
 }
 
 const s3 = new aws.S3({
@@ -40,7 +37,7 @@ exports.upload = (req, res, next) => {
             fs.unlink(path, () => {});
         })
         .catch(function (err) {
-            console.log("s3.putObject erro", err.message);
+            console.log("s3.putObject error", err.message);
             res.sendStatus(500);
         });
 };

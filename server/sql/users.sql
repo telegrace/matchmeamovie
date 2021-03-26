@@ -9,10 +9,11 @@ CREATE TABLE users (
     email VARCHAR NOT NULL UNIQUE CHECK (email <> ''),
     password_hash VARCHAR NOT NULL CHECK (password_hash <> ''),
     profile_pic VARCHAR, 
-    bio VARCHAR, 
+    bio_info VARCHAR, 
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
+INSERT INTO users (name, surname, email, password_hash)
 
 CREATE TABLE reset_codes (
     id SERIAL PRIMARY KEY,

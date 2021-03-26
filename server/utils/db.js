@@ -1,8 +1,11 @@
 const spicedPg = require("spiced-pg");
 const db = spicedPg(
     process.env.DATABASE_URL ||
-        "postgres:postgres:postgres@localhost:5432/matchmeamovie"
+        "postgres:postgres:postgres@localhost:5432/socialnetwork"
 );
+
+// database is socialnetwork, table is users(name, surname, email, password_hash)
+// table for reset_codes
 
 module.exports.registerUser = (name, surname, email, password_hash) => {
     const q = `
@@ -13,6 +16,7 @@ module.exports.registerUser = (name, surname, email, password_hash) => {
     return db.query(q, params);
 };
 
+//email address and password, need to compare password_hash DON'T TOUCH BELOW
 module.exports.loginUser = (email) => {
     const q = `
     SELECT * FROM users WHERE email = $1`;
@@ -63,11 +67,11 @@ module.exports.getUser = (id) => {
 
 module.exports.hasProfilePic = (id) => {
     const q = `
-    SELECT profile_pic, 
+    SELECT profile_pic
     FROM users
-    WHERE id = ANY ($1)
+    WHERE id = $1
     ;`;
-    const params = id;
+    const params = [id];
     return db.query(q, params);
 };
 
