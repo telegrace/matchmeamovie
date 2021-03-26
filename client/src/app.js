@@ -93,7 +93,9 @@ export default class App extends Component {
                             position="right-corner"
                         />
                     </div>
-
+                    <div id="ticker-box">
+                        <TopTen />
+                    </div>
                     <div className="nav-menu">
                         <Link to="/users">FIND PEOPLE</Link>
                         <br></br>
@@ -106,7 +108,6 @@ export default class App extends Component {
                         <button onClick={() => this.logout()}>LOGOUT</button>
                     </div>
                     <br></br>
-                    <TopTen />
 
                     {this.state.uploaderIsVisible && (
                         <Uploader
