@@ -39,16 +39,16 @@ export default class Profile extends Component {
     render() {
         return (
             <div id="profile">
+                <h2>
+                    Hi {this.props.name}, {this.props.surname}
+                </h2>
                 <ProfilePic
                     imageUrl={this.props.imageUrl}
                     toggleUploader={() => this.props.toggleUploader()}
                 />
 
-                <h2>
-                    {this.props.name}, {this.props.surname}
-                </h2>
                 <h3>{this.props.bio}</h3>
-                {this.props.bio && (
+                {this.props.bio && !this.state.bioEditorIsVisible && (
                     <button onClick={() => this.toggleBioEditor()}>EDIT</button>
                 )}
                 {!this.props.bio && (
@@ -67,6 +67,11 @@ export default class Profile extends Component {
                         bio={this.props.bio}
                         toggleBioEditor={() => this.toggleBioEditor()}
                     />
+                )}
+                {this.state.bioEditorIsVisible && (
+                    <button onClick={() => this.toggleBioEditor()}>
+                        CLOSE
+                    </button>
                 )}
             </div>
         );
