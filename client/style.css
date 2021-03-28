@@ -165,7 +165,7 @@ button:hover {
     color: black;
 }
 #find-people-results a:nth-child(odd),
-#find-movies-results a:nth-child(odd) {
+div.find-movies div#find-movies-results div a {
     background: none;
     color: inherit;
     border: none;
@@ -174,12 +174,31 @@ button:hover {
     cursor: pointer;
     outline: inherit;
 }
+#find-movies-results img {
+    width: 200px;
+    height: 270px;
+}
+
+.find-movies h4 {
+    width: 190px;
+    background-color: white;
+    margin: 10px;
+    margin-bottom: 20px;
+    color: black;
+    border: solid black 1px;
+    padding: 5px;
+}
 
 #find-people-results,
 #find-movies-results {
     margin-left: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-evenly;
+}
+
+#find-people-results div {
+    position: block;
 }
 
 .other-profile {

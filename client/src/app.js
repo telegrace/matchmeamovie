@@ -152,9 +152,13 @@ export default class App extends Component {
                             path="/users/"
                             render={(props) => <FindPeople />}
                         />
-                        <Route path="/get-friendslist/" component={Friends} />
-                        <Route path="/movies/" component={FindMovies} />
 
+                        <Route path="/get-friendslist/" component={Friends} />
+                        <Route
+                            path="/movies/"
+                            component={FindMovies}
+                            toggleUploader={() => this.toggleUploader()}
+                        />
                         <Route path="/chat/" component={Chat} />
                     </div>
                 </div>

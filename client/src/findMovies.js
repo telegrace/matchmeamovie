@@ -7,6 +7,7 @@ export default function FindMovies() {
     const [searchTerm, setSearchTerm] = useState();
     const [resultMovies, setResultMovies] = useState();
     const [trendingMovies, setTrendingMovies] = useState();
+    const [isToggled, setToggled] = useState(false);
 
     useEffect(function () {
         axios.get("/trending-movies").then(({ data }) => {
@@ -17,9 +18,9 @@ export default function FindMovies() {
 
     useEffect(
         function () {
-            axios.get("/api/movie" + searchTerm).then(({ data }) => {
+            axios.get("/api/movie/" + searchTerm).then(({ data }) => {
                 console.log("Grace", data);
-                setResultMovies(data);
+                setResultMovies(data.searchResults);
             });
         },
         [searchTerm]
@@ -29,6 +30,10 @@ export default function FindMovies() {
         setSearchTerm(target.value);
         console.log(target.value);
     }
+    const toggleTrueFalse = (event) => {
+        event.preventDefault();
+        setToggled(!isToggled);
+    };
 
     return (
         <div className="find-movies">
@@ -36,10 +41,11 @@ export default function FindMovies() {
                 Have a movie in mind?
                 <input defaultValue="" onChange={changeHandler}></input>
             </div>
+
             {trendingMovies && !searchTerm && (
                 <h2>This Week's Trending Movies</h2>
             )}
-            {/* {resultMovies && searchTerm && <h2>Results</h2>} */}
+            {resultMovies && searchTerm && <h2>Results</h2>}
 
             <div id="find-movies-results">
                 {trendingMovies &&
@@ -47,28 +53,42 @@ export default function FindMovies() {
                     trendingMovies.map(function (movie) {
                         return (
                             <div key={movie.id}>
-                                <a href={`https://image.tmdb.org/`}>
-                                    <img
-                                        src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                                    />
-                                </a>
-                                <p>{movie.title}</p>
+                                <img
+                                    src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                                />
+                                <div className="movie-name-link">
+                                    <h4 onClick={toggleTrueFalse}>
+                                        {movie.title}
+                                    </h4>
+                                </div>
+                                {isToggled && (
+                                    <div id="movie-info">
+                                        {movie.overview}
+                                        <button onClick={toggleTrueFalse}>
+                                            CLOSE
+                                        </button>
+                                    </div>
+                                )}
                             </div>
                         );
                     })}
-                {/* {resultMovies &&
+                {resultMovies &&
                     resultMovies.map(function (movie) {
+                        let imageUrl = movie.poster_path
+                            ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
+                            : "movie.png";
+
                         return (
-                            <div key={user.id}>
-                                <Link to={`/user/${user.id}`}>
-                                    <img src={user.profile_pic} />
-                                </Link>
-                                <Link to={`/user/${user.id}`}>
-                                    {user.name} {user.surname}
-                                </Link>
+                            <div key={movie.id}>
+                                <img src={imageUrl} onClick={toggleTrueFalse} />
+                                <div className="movie-name-link">
+                                    <h4 onClick={toggleTrueFalse}>
+                                        {movie.title}
+                                    </h4>
+                                </div>
                             </div>
                         );
-                    })} */}
+                    })}
             </div>
         </div>
     );

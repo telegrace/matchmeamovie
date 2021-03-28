@@ -84,11 +84,23 @@ router.get("/trending-movies", (req, res) => {
 });
 
 router.get("/api/movie/:searchTerm", (req, res) => {
+    console.log("GRACE", req.params.searchTerm);
+    axios
+        .get(
+            `https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${req.params.searchTerm}`
+        )
+        .then(({ data }) => {
+            let searchResults = data.results.slice(0, 10);
+            searchResults = mapTitleName(searchResults);
+            findGenre(searchResults);
+            res.json({
+                searchResults: searchResults,
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
     console.log(req.params.searchTerm);
-    res.json({
-        data: true,
-        success: true,
-    });
 });
 exports.router = router;
 

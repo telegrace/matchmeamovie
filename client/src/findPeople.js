@@ -63,6 +63,8 @@ export default function FindPeople() {
                                 <Link to={`/user/${user.id}`}>
                                     <img src={user.profile_pic} />
                                 </Link>
+                                <br></br>
+                                <br></br>
                                 <Link to={`/user/${user.id}`}>
                                     {user.name} {user.surname}
                                 </Link>
@@ -76,6 +78,9 @@ export default function FindPeople() {
                                 <Link to={`/user/${user.id}`}>
                                     <img src={user.profile_pic} />
                                 </Link>
+                                <br></br>
+                                <br></br>
+
                                 <Link to={`/user/${user.id}`}>
                                     {user.name} {user.surname}
                                 </Link>
