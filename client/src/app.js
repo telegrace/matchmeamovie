@@ -5,9 +5,10 @@ import ProfilePic from "./profilePic";
 import Profile from "./profile";
 import Uploader from "./uploader";
 import Logo from "./logo";
-import TopTen from "./topten";
+import TopTen from "./topTen";
 import OtherProfile from "./otherProfile";
 import FindPeople from "./findPeople";
+import FindMovies from "./findMovies";
 import Friends from "./friends";
 import Chat from "./chat";
 
@@ -97,6 +98,8 @@ export default class App extends Component {
                         <TopTen />
                     </div>
                     <div className="nav-menu">
+                        <Link to="/movies">FIND MOVIES</Link>
+                        <br></br>
                         <Link to="/users">FIND PEOPLE</Link>
                         <br></br>
                         <Link to="/">MY PROFILE</Link>
@@ -150,6 +153,8 @@ export default class App extends Component {
                             render={(props) => <FindPeople />}
                         />
                         <Route path="/get-friendslist/" component={Friends} />
+                        <Route path="/movies/" component={FindMovies} />
+
                         <Route path="/chat/" component={Chat} />
                     </div>
                 </div>

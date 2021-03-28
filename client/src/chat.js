@@ -27,26 +27,27 @@ export default function Chat() {
         <>
             <div id="chat">
                 <h1>Chatroom</h1>
+
+                <div className="chat-container" ref={elemRef}>
+                    {chatMessages &&
+                        chatMessages.map((msgs) => (
+                            <div className="messages" key={msgs.id}>
+                                <img
+                                    className="chat-img"
+                                    src={msgs.profile_pic}
+                                ></img>
+                                <p>
+                                    {msgs.name} {msgs.surname} said at{" "}
+                                    {msgs.posted_at}: {msgs.message}
+                                </p>
+                            </div>
+                        ))}
+                </div>
+                <textarea
+                    placeholder="write your message and press enter to send..."
+                    onKeyDown={keyCheck}
+                ></textarea>
             </div>
-            <div className="chat-container" ref={elemRef}>
-                {chatMessages &&
-                    chatMessages.map((msgs) => (
-                        <div className="messages" key={msgs.id}>
-                            <img
-                                className="chat-img"
-                                src={msgs.profile_pic}
-                            ></img>
-                            <p>
-                                {msgs.name} {msgs.surname} said at{" "}
-                                {msgs.posted_at}: {msgs.message}
-                            </p>
-                        </div>
-                    ))}
-            </div>
-            <textarea
-                placeholder="write your message and press enter to send..."
-                onKeyDown={keyCheck}
-            ></textarea>
         </>
     );
 }

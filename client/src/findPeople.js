@@ -47,38 +47,42 @@ export default function FindPeople() {
 
     return (
         <div className="find-people">
-            <p>LOOKING FOR SOMEONE?</p>
-            <input defaultValue="" onChange={changeHandler}></input>
+            <div className="find-people-search">
+                LOOKING FOR SOMEONE?
+                <input defaultValue="" onChange={changeHandler}></input>
+            </div>
             {newestUsers && !searchTerm && <h2>Newest Members</h2>}
-
-            {newestUsers &&
-                !searchTerm &&
-                newestUsers.map(function (user) {
-                    return (
-                        <div key={user.id}>
-                            <Link to={`/user/${user.id}`}>
-                                <img src={user.profile_pic} />
-                            </Link>
-                            <p>
-                                {user.name}, {user.surname}
-                            </p>
-                        </div>
-                    );
-                })}
             {resultUsers && searchTerm && <h2>Results</h2>}
-            {resultUsers &&
-                resultUsers.map(function (user) {
-                    return (
-                        <div key={user.id}>
-                            <Link to={`/user/${user.id}`}>
-                                <img src={user.profile_pic} />
-                            </Link>
-                            <p>
-                                {user.name}, {user.surname}
-                            </p>
-                        </div>
-                    );
-                })}
+
+            <div id="find-people-results">
+                {newestUsers &&
+                    !searchTerm &&
+                    newestUsers.map(function (user) {
+                        return (
+                            <div key={user.id}>
+                                <Link to={`/user/${user.id}`}>
+                                    <img src={user.profile_pic} />
+                                </Link>
+                                <Link to={`/user/${user.id}`}>
+                                    {user.name} {user.surname}
+                                </Link>
+                            </div>
+                        );
+                    })}
+                {resultUsers &&
+                    resultUsers.map(function (user) {
+                        return (
+                            <div key={user.id}>
+                                <Link to={`/user/${user.id}`}>
+                                    <img src={user.profile_pic} />
+                                </Link>
+                                <Link to={`/user/${user.id}`}>
+                                    {user.name} {user.surname}
+                                </Link>
+                            </div>
+                        );
+                    })}
+            </div>
         </div>
     );
 }

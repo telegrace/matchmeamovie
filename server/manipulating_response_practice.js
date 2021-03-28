@@ -13,12 +13,12 @@ const results = [
         adult: false,
         backdrop_path: "/pcDc2WJAYGJTTvRSEIpRZwM3Ola.jpg",
         title: "Zack Snyder's Justice League",
-        genre_ids: [Array],
+        genre_ids: [28, 2],
         popularity: 11462.725,
         media_type: "movie",
     },
     {
-        genre_ids: [Array],
+        genre_ids: [10765, 10759, 18],
         title: "Godzilla vs. Kong",
         original_language: "en",
         original_title: "Godzilla vs. Kong",
@@ -38,7 +38,7 @@ const results = [
     {
         original_name: "The Falcon and the Winter Soldier",
         first_air_date: "2021-03-19",
-        genre_ids: [Array],
+        genre_ids: [28, 878],
         original_language: "en",
         poster_path: "/6kbAMLteGO8yyewYau6bJ683sw7.jpg",
         vote_count: 1690,
@@ -54,7 +54,7 @@ const results = [
     },
     {
         backdrop_path: "/ifGVUbvl36CnY9mp4kquK8In1Rh.jpg",
-        genre_ids: [Array],
+        genre_ids: [1, 3, 5],
         first_air_date: "2021-03-25",
         original_language: "en",
         poster_path: "/s1wP1YeQS9fgSHiXZ3yJb2ufB2D.jpg",
@@ -72,7 +72,7 @@ const results = [
     {
         adult: false,
         backdrop_path: "/4AIIaRA8zMTtUIAEqTMp99FLWJN.jpg",
-        genre_ids: [Array],
+        genre_ids: [1000, 2, 18],
         id: 797394,
         original_language: "ru",
         original_title: "Ганзель, Гретель и Агентство Магии",
@@ -87,284 +87,70 @@ const results = [
         popularity: 12.632,
         media_type: "movie",
     },
-    {
-        vote_average: 0,
-        overview:
-            "In Victorian London, a gang of troubled street teens are manipulated into solving crimes for the sinister Doctor Watson and his mysterious business partner, the elusive Sherlock Holmes. As the crimes take on a horrifying supernatural edge and a dark power emerges, it'll be up to the Irregulars to come together to save not only London but the entire world.",
-        vote_count: 0,
-        name: "The Irregulars",
-        first_air_date: "2021-03-26",
-        backdrop_path: "/edlaSNkxcpNy36WiGTO9AR1XtnB.jpg",
-        id: 98187,
-        genre_ids: [Array],
-        original_language: "en",
-        original_name: "The Irregulars",
-        origin_country: [Array],
-        poster_path: "/qN6HCKR3ZRqbpGBWFctVlSTKR2k.jpg",
-        popularity: 51.649,
-        media_type: "tv",
-    },
-    {
-        adult: false,
-        backdrop_path: "/gzycjJWGw04DF6C7IYOA1F0cWhc.jpg",
-        genre_ids: [Array],
-        id: 694256,
-        original_language: "it",
-        original_title: "Sulla stessa onda",
-        overview:
-            "A summer fling born under the Sicilian sun quickly develops into a heartbreaking love story that forces a boy and girl to grow up too quickly.",
-        poster_path: "/j9O2WXJqF45ynkng4SAsZ1h0OCt.jpg",
-        release_date: "2021-03-25",
-        title: "Caught by a Wave",
-        video: false,
-        vote_average: 5.9,
-        vote_count: 11,
-        popularity: 41.296,
-        media_type: "movie",
-    },
-    {
-        backdrop_path: "/sWKIO0qYe13OzdNdy5iwdXIQqmb.jpg",
-        genre_ids: [Array],
-        first_air_date: "2021-03-26",
-        original_language: "en",
-        poster_path: "/yDWJYRAwMNKbIYT8ZB33qy84uzO.jpg",
-        vote_average: 10,
-        name: "Invincible",
-        id: 95557,
-        vote_count: 1,
-        overview:
-            "Mark Grayson is a normal teenager except for the fact that his father is the most powerful superhero on the planet. Shortly after his seventeenth birthday, Mark begins to develop powers of his own and enters into his father’s tutelage.",
-        origin_country: [Array],
-        original_name: "Invincible",
-        popularity: 37.029,
-        media_type: "tv",
-    },
-    {
-        video: false,
-        vote_average: 7.2,
-        title: "Monster Hunter",
-        vote_count: 1238,
-        overview:
-            "A portal transports Cpt. Artemis and an elite unit of soldiers to a strange world where powerful monsters rule with deadly ferocity. Faced with relentless danger, the team encounters a mysterious hunter who may be their only hope to find a way home.",
-        adult: false,
-        backdrop_path: "/8tNX8s3j1O0eqilOQkuroRLyOZA.jpg",
-        id: 458576,
-        genre_ids: [Array],
-        release_date: "2020-12-03",
-        original_language: "en",
-        original_title: "Monster Hunter",
-        poster_path: "/1UCOF11QCw8kcqvce8LKOO6pimh.jpg",
-        popularity: 1898.599,
-        media_type: "movie",
-    },
-    {
-        backdrop_path: "/pLG4ihU1d2XkQbASQDjsFu9U7d9.jpg",
-        genre_ids: [Array],
-        vote_count: 4,
-        original_name: "¿Quién mató a Sara?",
-        origin_country: [Array],
-        poster_path: "/o7uk5ChRt3quPIv8PcvPfzyXdMw.jpg",
-        name: "Who Killed Sara?",
-        id: 120168,
-        vote_average: 7,
-        original_language: "es",
-        overview:
-            "Hell-bent on exacting revenge and proving he was framed for his sister's murder, Álex sets out to unearth much more than the crime's real culprit.",
-        first_air_date: "2021-03-24",
-        popularity: 63.647,
-        media_type: "tv",
-    },
-    {
-        video: false,
-        vote_average: 8.4,
-        title: "Raya and the Last Dragon",
-        vote_count: 1654,
-        overview:
-            "Long ago, in the fantasy world of Kumandra, humans and dragons lived together in harmony. But when an evil force threatened the land, the dragons sacrificed themselves to save humanity. Now, 500 years later, that same evil has returned and it’s up to a lone warrior, Raya, to track down the legendary last dragon to restore the fractured land and its divided people.",
-        adult: false,
-        backdrop_path: "/hJuDvwzS0SPlsE6MNFOpznQltDZ.jpg",
-        id: 527774,
-        genre_ids: [Array],
-        release_date: "2021-03-03",
-        original_language: "en",
-        original_title: "Raya and the Last Dragon",
-        poster_path: "/lPsD10PP4rgUGiGR4CCXA6iY0QQ.jpg",
-        popularity: 2934.407,
-        media_type: "movie",
-    },
-    {
-        adult: false,
-        backdrop_path: "/egg7KFi18TSQc1s24RMmR9i2zO6.jpg",
-        genre_ids: [Array],
-        vote_count: 4456,
-        original_language: "en",
-        original_title: "Wonder Woman 1984",
-        poster_path: "/8UlWHLMpgZm9bx6QYh0NFoq67TZ.jpg",
-        video: false,
-        id: 464052,
-        vote_average: 6.8,
-        title: "Wonder Woman 1984",
-        overview:
-            "A botched store robbery places Wonder Woman in a global battle against a powerful and mysterious ancient force that puts her powers in jeopardy.",
-        release_date: "2020-12-16",
-        popularity: 1703.052,
-        media_type: "movie",
-    },
-    {
-        overview:
-            "Tom the cat and Jerry the mouse get kicked out of their home and relocate to a fancy New York hotel, where a scrappy employee named Kayla will lose her job if she can’t evict Jerry before a high-class wedding at the hotel. Her solution? Hiring Tom to get rid of the pesky mouse.",
-        release_date: "2021-02-11",
-        adult: false,
-        backdrop_path: "/fev8UFNFFYsD5q7AcYS8LyTzqwl.jpg",
-        genre_ids: [Array],
-        vote_count: 965,
-        original_language: "en",
-        original_title: "Tom & Jerry",
-        poster_path: "/6KErczPBROQty7QoIsaa6wJYXZi.jpg",
-        title: "Tom & Jerry",
-        video: false,
-        vote_average: 7.4,
-        id: 587807,
-        popularity: 1890.905,
-        media_type: "movie",
-    },
-    {
-        adult: false,
-        backdrop_path: "/p5JT1q6BDgBv8hBa5PFgPBy8Aca.jpg",
-        genre_ids: [Array],
-        id: 600354,
-        original_language: "en",
-        original_title: "The Father",
-        poster_path: "/okhrkHYF94K4kLXLwZkQMhWZ0fL.jpg",
-        video: false,
-        title: "The Father",
-        vote_count: 33,
-        overview:
-            "A man refuses all assistance from his daughter as he ages. As he tries to make sense of his changing circumstances, he begins to doubt his loved ones, his own mind and even the fabric of his reality.",
-        release_date: "2020-12-23",
-        vote_average: 7.6,
-        popularity: 43.935,
-        media_type: "movie",
-    },
-    {
-        adult: false,
-        backdrop_path: "/sA07ynKTNXW2UMMOgPfLmFmmjgm.jpg",
-        genre_ids: [Array],
-        vote_count: 1,
-        original_language: "en",
-        original_title: "A Week Away",
-        poster_path: "/mbBq7rEyXb5sQ6XisYAEo280jTO.jpg",
-        video: false,
-        id: 699102,
-        vote_average: 10,
-        title: "A Week Away",
-        overview:
-            "Troubled teen Will Hawkins has a run-in with the law that puts him at an important crossroad: go to juvenile detention or attend a Christian summer camp. At first a fish-out-of-water, Will opens his heart, discovers love with a camp regular, and sense of belonging in the last place he expected to find it.",
-        release_date: "2021-03-26",
-        popularity: 54.02,
-        media_type: "movie",
-    },
-    {
-        name: "Riverdale",
-        original_language: "en",
-        poster_path: "/wRbjVBdDo5qHAEOVYoMWpM58FSA.jpg",
-        id: 69050,
-        vote_average: 8.6,
-        overview:
-            "Set in the present, the series offers a bold, subversive take on Archie, Betty, Veronica and their friends, exploring the surreality of small-town life, the darkness and weirdness bubbling beneath Riverdale’s wholesome facade.",
-        vote_count: 10678,
-        first_air_date: "2017-01-26",
-        original_name: "Riverdale",
-        origin_country: [Array],
-        backdrop_path: "/qZtAf4Z1lazGQoYVXiHOrvLr5lI.jpg",
-        genre_ids: [Array],
-        popularity: 1458.144,
-        media_type: "tv",
-    },
-    {
-        video: false,
-        vote_average: 6.6,
-        title: "Doors",
-        vote_count: 13,
-        overview:
-            "Without warning, millions of mysterious alien “doors” suddenly appear around the globe. In a rush to determine the reason for their arrival, mankind must work together to understand the purpose of these cosmic anomalies.",
-        adult: false,
-        backdrop_path: "/1pFSJ9lxMYLkgLS5gmnwm1AEiqx.jpg",
-        id: 798141,
-        genre_ids: [Array],
-        release_date: "2021-03-23",
-        original_language: "en",
-        original_title: "Doors",
-        poster_path: "/pGPUXyhQTOqskKdDOD3Fmicqfc0.jpg",
-        popularity: 105.3,
-        media_type: "movie",
-    },
-    {
-        id: 508442,
-        poster_path: "/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg",
-        adult: false,
-        backdrop_path: "/kf456ZqeC45XTvo6W9pW5clYKfQ.jpg",
-        genre_ids: [Array],
-        original_language: "en",
-        vote_count: 5403,
-        vote_average: 8.3,
-        video: false,
-        title: "Soul",
-        release_date: "2020-12-25",
-        original_title: "Soul",
-        overview:
-            "Joe Gardner is a middle school teacher with a love for jazz music. After a successful gig at the Half Note Club, he suddenly gets into an accident that separates his soul from his body and is transported to the You Seminar, a center in which souls develop and gain passions before being transported to a newborn child. Joe must enlist help from the other souls-in-training, like 22, a soul who has spent eons in the You Seminar, in order to get back to Earth.",
-        popularity: 690.446,
-        media_type: "movie",
-    },
-    {
-        vote_average: 0,
-        overview:
-            "A controversial rock band with ties to the occult and the maestros who work with them try to keep their west coast family dynamic together amidst the chaos of the industry as a haunting secret of the singer and a young groupie arrives on his doorstep. Their path intertwines with an east coast rookie kid who idolizes them and tries to make his way in the music business as the ultimate underdog.",
-        original_name: "Paradise City",
-        origin_country: [],
-        backdrop_path: "/pLpF30oiIzZu8pD0Gs2pXZns3ZQ.jpg",
-        vote_count: 0,
-        name: "Paradise City",
-        id: 5768,
-        original_language: "en",
-        first_air_date: "2021-03-25",
-        poster_path: "/g4D7gMIihvxCXODW7BtVMdXIjmC.jpg",
-        genre_ids: [Array],
-        popularity: 39.95,
-        media_type: "tv",
-    },
-    {
-        backdrop_path: "/mtwThSQ8AJ2hV5KkVsDETgZISAw.jpg",
-        genre_ids: [Array],
-        original_language: "en",
-        original_title: "Bad Trip",
-        poster_path: "/A1Gy5HX3DKGaNW1Ay30NTIVJqJ6.jpg",
-        video: false,
-        vote_average: 6.9,
-        vote_count: 31,
-        overview:
-            "Two pals embark on a road trip full of funny pranks that pull real people into mayhem.",
-        release_date: "2021-03-26",
-        title: "Bad Trip",
-        id: 578908,
-        adult: false,
-        popularity: 13.459,
-        media_type: "movie",
-    },
 ];
 
-let standardised = [...results];
+let genres_list = [
+    { id: 28, name: "Action" },
+    { id: 12, name: "Adventure" },
+    { id: 16, name: "Animation" },
+    { id: 35, name: "Comedy" },
+    { id: 80, name: "Crime" },
+    { id: 99, name: "Documentary" },
+    { id: 18, name: "Drama" },
+    { id: 10751, name: "Family" },
+    { id: 14, name: "Fantasy" },
+    { id: 36, name: "History" },
+    { id: 27, name: "Horror" },
+    { id: 10402, name: "Music" },
+    { id: 9648, name: "Mystery" },
+    { id: 10749, name: "Romance" },
+    { id: 878, name: "Science Fiction" },
+    { id: 10770, name: "TV Movie" },
+    { id: 53, name: "Thriller" },
+    { id: 10752, name: "War" },
+    { id: 37, name: "Western" },
+];
 
-standardised = standardised.map((movie) => {
-    return {
-        ...movie,
-        title: movie.title || movie.name,
-    };
-});
+// const buildObject = (genres_list) => {
+//     const obj = {};
+//     for (let i = 0; i < genres_list.length; i++) {
+//         const { id, name } = genres_list[i];
+//         obj[id] = name;
+//     }
+//     return obj;
+// };
+// let genres = buildObject(genres_list);
 
-for (let i = 0; i < standardised.length; i++) {
-    console.log(standardised[i].title);
-}
+// for (i = 0; i < results.length; i++) {
+//     let genre_ids = results[i].genre_ids;
+//     for (j = 0; j < genre_ids.length; j++) {
+//         let search_id = genre_ids[j];
+//         if (genres[search_id]) {
+//             console.log(genres[search_id]);
+//         } else {
+//             console.log("Surprise");
+//         }
+//     }
+// }
 
-// console.log("GRAC HERE", standardised);
+const array1 = [1, 4, 9, 16];
+
+// pass a function to map
+const map1 = array1.map((x) => x * 2);
+
+console.log(map1);
+// expected output: Array [2, 8, 18, 32]
+
+let testArr = [...results];
+
+const mapTitleName = (arr) => {
+    arr = arr.map((movie) => {
+        return {
+            ...movie,
+            title: movie.title || movie.name,
+        };
+    });
+    return arr;
+};
+
+console.log(mapTitleName(testArr));

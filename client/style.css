@@ -47,14 +47,16 @@ div#welcome button {
 }
 
 .profile-pic img#right-corner {
-    width: 90px;
-    height: 90px;
+    width: 70px;
+    height: 70px;
     float: right;
-    margin: 5px;
+    margin: 15px;
+    margin-right: 20px;
     border-radius: 50%;
 }
 
-#profile {
+#profile,
+.other-profile {
     width: 320px;
     height: 550px;
     margin: 10px;
@@ -66,11 +68,23 @@ div#welcome button {
     clear: left;
 }
 
-#profile img {
+#profile img,
+.find-people img,
+.other-profile img {
     width: 200px;
     height: 200px;
     border: solid black 1px;
     margin: 10px;
+}
+.uploader {
+    position: fixed;
+    left: 25%;
+    height: 300px;
+    width: 50%;
+    padding: 30px;
+    border: black solid 1px;
+    background-color: #fec87e;
+    z-index: 1;
 }
 
 div.nav-menu {
@@ -85,7 +99,7 @@ div.nav-menu {
     clear: right;
 }
 
-html body main div#app div#ticker-box {
+#ticker-box {
     background-color: whitesmoke;
     overflow: hidden;
 }
@@ -98,12 +112,14 @@ html body main div#app div#ticker-box {
     animation: side-scroll 20s linear infinite;
 }
 #ticker h3 {
-    margin: 5px;
+    height: 20px;
     padding: 5px;
+    margin: 10px;
     background-color: white;
     color: black;
     border: black solid 1px;
 }
+
 #top-ten {
     position: absolute;
     top: 0px;
@@ -111,19 +127,16 @@ html body main div#app div#ticker-box {
     margin-left: 10px;
     margin-right: 10px;
     padding: 10px;
-    background: #d9d9f4;
     text-align: right;
 }
 #ticker:hover {
     animation-play-state: paused;
 }
 
-.top-ten {
-    margin-left: 20px;
-}
 .top-ten a {
     padding-left: 10px;
     padding-right: 10px;
+    margin-left: 20px;
 }
 
 a {
@@ -148,11 +161,72 @@ button {
 }
 
 button:hover {
-    background-color: #fec87e;
+    background-color: #00d0dd;
     color: black;
 }
+#find-people-results a:nth-child(odd),
+#find-movies-results a:nth-child(odd) {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+}
 
-img {
+#find-people-results,
+#find-movies-results {
+    margin-left: 20px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.other-profile {
+    position: relative;
+    left: 30%;
+    width: 40%;
+    padding: 10px;
+}
+.other-profile img {
+    margin-top: 40px;
+}
+
+#chat {
+    position: relative;
+    left: 25%;
+    width: 50%;
+}
+
+#chat textarea {
+    width: 90%;
+    margin: 20px;
+}
+
+.chat-container {
+    height: 550px;
+    border: solid black 1px;
+    background-color: aliceblue;
+    overflow-y: auto;
+}
+
+.messages {
+    padding: 10px;
+    border: black solid 1px;
+    overflow: auto;
+    text-align: left;
+}
+
+.chat-container img {
+    width: 70px;
+    height: 70px;
+    padding: 10px;
+    border-radius: 50%;
+    float: left;
+    clear: left;
+}
+
+html body main div#app div#main-container textarea img {
     object-fit: cover;
 }
 
@@ -164,3 +238,5 @@ img {
         transform: translate(-100%, 0);
     }
 }
+
+/* do the seach filter for movies tonight, make a component for the movies selected */

@@ -5,8 +5,8 @@ export default function TopTen() {
     const [resultUsers, setResultUsers] = useState();
 
     useEffect(function () {
-        axios.get("/getTopTenList").then(({ data }) => {
-            console.log(data.topTenList);
+        axios.get("/top-ten-today").then(({ data }) => {
+            // console.log(data.topTenList);
             setResultUsers(data.topTenList);
         });
     }, []);
