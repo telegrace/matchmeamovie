@@ -10,6 +10,7 @@ import OtherProfile from "./otherProfile";
 import FindPeople from "./findPeople";
 import FindMovies from "./findMovies";
 import Friends from "./friends";
+import WatchList from "./watchList";
 import MovieInfo from "./movieInfo";
 import Chat from "./chat";
 
@@ -101,12 +102,15 @@ export default class App extends Component {
                     <div className="nav-menu">
                         <Link to="/movies">FIND MOVIES</Link>
                         <br></br>
-                        <Link to="/users">FIND PEOPLE</Link>
+                        <Link to="/watchlist">YOUR WATCHLIST</Link>
                         <br></br>
-                        <Link to="/">MY PROFILE</Link>
+                        <Link to="/users">FIND PEOPLE</Link>
                         <br></br>
                         <Link to="/get-friendslist/">FRIENDS</Link>
                         <br></br>
+                        <Link to="/">MY PROFILE</Link>
+                        <br></br>
+
                         <Link to="/chat/">CHAT</Link>
                         <br></br>
                         <button onClick={() => this.logout()}>LOGOUT</button>
@@ -165,11 +169,8 @@ export default class App extends Component {
                         />
 
                         <Route path="/get-friendslist/" component={Friends} />
-                        <Route
-                            path="/movies/"
-                            component={FindMovies}
-                            toggleUploader={() => this.toggleUploader()}
-                        />
+                        <Route path="/watchlist/" component={WatchList} />
+                        <Route path="/movies/" component={FindMovies} />
                         <Route path="/chat/" component={Chat} />
                     </div>
                 </div>

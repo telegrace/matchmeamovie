@@ -70,9 +70,10 @@ div#welcome button {
 
 #profile img,
 .find-people img,
-.other-profile img {
+.other-profile img,
+#friends-list img {
     width: 200px;
-    height: 200px;
+    height: 180px;
     border: solid black 1px;
     margin: 10px;
 }
@@ -198,7 +199,8 @@ div.find-movies div#find-movies-results div a {
 }
 
 #find-people-results,
-#find-movies-results {
+#find-movies-results,
+#friends-list {
     margin-left: 20px;
     display: flex;
     flex-wrap: wrap;

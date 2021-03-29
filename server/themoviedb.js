@@ -1,6 +1,7 @@
 const axios = require("axios");
 const express = require("express");
 const router = express.Router();
+const movie_db = require("./utils/movie_db");
 const { key } = require("./config/themoviedb_key.json");
 
 ///////////////////
@@ -119,6 +120,35 @@ router.get("/api/movie-info/:media_type/:id", (req, res) => {
         .catch(function (error) {
             console.log(error);
         });
+});
+
+router.post("/api/add-movie/:media_type/:id/:title", (req, res) => {
+    console.log("User swiped right", req.session.userId);
+    movie_db
+        .addMovie(
+            req.session.userId,
+            req.params.media_type,
+            req.params.id,
+            req.params.title
+        )
+        .then(({ rows }) => {
+            console.log(rows[0]);
+        });
+});
+
+router.post("/watchlist", (req, res) => {
+    console.log("get", req.session.userId);
+    // movie_db
+    //     .getWatchList(
+    //         req.session.userId,
+    //         req.params.media_type,
+    //         req.params.id,
+    //         req.params.title
+    //     )
+    //     .then(({ rows }) => {
+    //         console.log(rows[0]);
+    //     });
+    res.json({ success: true });
 });
 
 exports.router = router;

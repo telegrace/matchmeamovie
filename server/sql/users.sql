@@ -28,11 +28,13 @@ CREATE TABLE movies (
     id SERIAL PRIMARY KEY,
     user_id INTEGER REFERENCES users (id),
     title VARCHAR NOT NULL CHECK (title <> ''),
-    movie BOOLEAN,
+    media_type VARCHAR NOT NULL CHECK (media_type <> ''),
     api_id INTEGER,
-    watched BOOLEAN DEFAULT false 
+    watched BOOLEAN DEFAULT false,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+
 );
 
--- INSERT INTO movies (user_id, title, movie, api_id, watched)
+-- INSERT INTO movies (user_id, title, media_type, api_id, watched)
 
 

@@ -7,7 +7,6 @@ export default function FindMovies() {
     const [searchTerm, setSearchTerm] = useState();
     const [resultMovies, setResultMovies] = useState();
     const [trendingMovies, setTrendingMovies] = useState();
-    const [isToggled, setToggled] = useState(false);
 
     useEffect(
         function () {
@@ -82,22 +81,19 @@ export default function FindMovies() {
                         let imageUrl = movie.poster_path
                             ? `https://image.tmdb.org/t/p/w200${movie.poster_path}`
                             : "movie.png";
-
+                        if (!movie.media_type) {
+                            movie.media_type = "movie";
+                        }
                         return (
                             <div key={movie.id}>
                                 <Link
                                     to={`/movie-info/${movie.media_type}/${movie.id}`}
                                 >
-                                    <img
-                                        src={imageUrl}
-                                        onClick={toggleTrueFalse}
-                                    />
+                                    <img src={imageUrl} />
                                 </Link>
 
                                 <div className="movie-name-link">
-                                    <h4 onClick={toggleTrueFalse}>
-                                        {movie.title}
-                                    </h4>
+                                    <h4>{movie.title}</h4>
                                 </div>
                             </div>
                         );

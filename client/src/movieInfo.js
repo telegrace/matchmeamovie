@@ -46,7 +46,6 @@ export default class MovieInfo extends Component {
             this.setState({ xStart: event.screenX });
         } else {
             this.setState({ xStart: event.targetTouches[0].clientX });
-
             // console.log("TOUCH START", event.targetTouches[0].clientX);
         }
     }
@@ -75,13 +74,20 @@ export default class MovieInfo extends Component {
                 }
             });
         }
+        if (this.state.right) {
+            axios.post(
+                `/api/add-movie/${this.props.match.params.media_type}/${this.props.match.params.id}/${this.state.title}`
+            );
+        }
     }
 
     render() {
         return (
             <div className="movie-info">
-                {this.state.left && !this.state.right && <h3>LEFT</h3>}
-                {this.state.right && !this.state.left && <h3>RIGHT</h3>}
+                {this.state.left && !this.state.right && <h3>Left swipe</h3>}
+                {this.state.right && !this.state.left && (
+                    <h3>Movie added to watch list!</h3>
+                )}
 
                 <h2>{this.state.title}</h2>
                 <img
