@@ -14,7 +14,8 @@ CREATE TABLE users (
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
 
-INSERT INTO users (name, surname, email, password_hash)
+-- INSERT INTO users (name, surname, email, password_hash)
+-- VALUES ('Grace','Plum','grace@plum.uk', '$2a$10$ay7G3ag9wUkZgQahIFWbj.Y.Vz74ZG3dDcuLSqH4heRl.kQW9Srhu');
 
 CREATE TABLE reset_codes (
     id SERIAL PRIMARY KEY,
@@ -25,10 +26,13 @@ CREATE TABLE reset_codes (
 
 CREATE TABLE movies (
     id SERIAL PRIMARY KEY,
-    user_id VARCHAR NOT NULL UNIQUE REFERENCES users (id),
-    movie VARCHAR NOT NULL CHECK (code <> ''),
+    user_id INTEGER REFERENCES users (id),
+    title VARCHAR NOT NULL CHECK (title <> ''),
+    movie BOOLEAN,
+    api_id INTEGER,
+    watched BOOLEAN DEFAULT false 
 );
 
-
+-- INSERT INTO movies (user_id, title, movie, api_id, watched)
 
 
