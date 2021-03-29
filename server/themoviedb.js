@@ -102,6 +102,25 @@ router.get("/api/movie/:searchTerm", (req, res) => {
         });
     console.log(req.params.searchTerm);
 });
+
+router.get("/api/movie-info/:media_type/:id", (req, res) => {
+    console.log("GRACE", req.params.media_type, req.params.id);
+    axios
+        .get(
+            `https://api.themoviedb.org/3/${req.params.media_type}/${req.params.id}?api_key=${key}`
+        )
+        .then(({ data }) => {
+            findGenre(data);
+            //want original_language, title, vote_average, poster_path, overview
+            res.json({
+                movie_data: data,
+            });
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+});
+
 exports.router = router;
 
 //for practice         .get(`https://restcountries.eu/rest/v2/all`)

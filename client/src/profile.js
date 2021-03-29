@@ -51,7 +51,7 @@ export default class Profile extends Component {
                 {this.props.bio && !this.state.bioEditorIsVisible && (
                     <button onClick={() => this.toggleBioEditor()}>EDIT</button>
                 )}
-                {!this.props.bio && (
+                {!this.props.bio && !this.state.bioEditorIsVisible && (
                     <div>
                         <h2>Add your bio.</h2>
                         <button onClick={() => this.toggleBioEditor()}>

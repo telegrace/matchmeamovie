@@ -56,9 +56,9 @@ div#welcome button {
 }
 
 #profile,
-.other-profile {
+.other-profile,
+.movie-info {
     width: 320px;
-    height: 550px;
     margin: 10px;
     margin-top: -10px;
     padding: 10px;
@@ -84,12 +84,11 @@ div#welcome button {
     padding: 30px;
     border: black solid 1px;
     background-color: #fec87e;
-    z-index: 1;
+    z-index: 100;
 }
 
 div.nav-menu {
     width: 200px;
-    height: 250px;
     margin: 10px;
     padding: 10px;
     border: black solid 1px;
@@ -178,6 +177,15 @@ div.find-movies div#find-movies-results div a {
     width: 200px;
     height: 270px;
 }
+#hidden-movie-info {
+    visibility: hidden;
+    width: 200px;
+    height: 330px;
+    background-color: red;
+    overflow: hidden;
+    position: absolute;
+    z-index: 10;
+}
 
 .find-movies h4 {
     width: 190px;
@@ -201,12 +209,46 @@ div.find-movies div#find-movies-results div a {
     position: block;
 }
 
-.other-profile {
+.other-profile,
+.movie-info {
     position: relative;
     left: 30%;
     width: 40%;
     padding: 10px;
 }
+
+.movie-info h2 {
+    background-color: #fec87e;
+    padding: 10px;
+    color: black;
+    border: solid 1px black;
+}
+
+.movie-info p {
+    background-color: white;
+    padding: 10px;
+    margin: 10px;
+    border: dashed black 1px;
+}
+
+.movie-info #movie-info-lan-vote-box {
+    color: black;
+    height: 20px;
+    margin: 10px;
+}
+#language,
+#vote-average {
+    background-color: white;
+    padding: 10px;
+    border: solid black 1px;
+}
+.movie-info #movie-info-lan-vote-box #language {
+    float: left;
+}
+.movie-info #movie-info-lan-vote-box #vote-average {
+    float: right;
+}
+
 .other-profile img {
     margin-top: 40px;
 }

@@ -10,6 +10,7 @@ import OtherProfile from "./otherProfile";
 import FindPeople from "./findPeople";
 import FindMovies from "./findMovies";
 import Friends from "./friends";
+import MovieInfo from "./movieInfo";
 import Chat from "./chat";
 
 //bio_info is for SQL only !
@@ -151,6 +152,16 @@ export default class App extends Component {
                         <Route
                             path="/users/"
                             render={(props) => <FindPeople />}
+                        />
+                        <Route
+                            path="/movie-info/:media_type/:id"
+                            render={(props) => (
+                                <MovieInfo
+                                    key={props.match.url}
+                                    match={props.match}
+                                    history={props.history}
+                                />
+                            )}
                         />
 
                         <Route path="/get-friendslist/" component={Friends} />

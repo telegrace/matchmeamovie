@@ -9,37 +9,47 @@ export default function FindMovies() {
     const [trendingMovies, setTrendingMovies] = useState();
     const [isToggled, setToggled] = useState(false);
 
-    useEffect(function () {
-        axios.get("/trending-movies").then(({ data }) => {
-            console.log("Grace", data.trending);
-            setTrendingMovies(data.trending);
-        });
-    }, []);
-
     useEffect(
         function () {
-            axios.get("/api/movie/" + searchTerm).then(({ data }) => {
-                console.log("Grace", data);
-                setResultMovies(data.searchResults);
-            });
+            searchTerm &&
+                axios.get("/api/movie/" + searchTerm).then(({ data }) => {
+                    console.log("Grace", data);
+                    setResultMovies(data.searchResults);
+                });
         },
         [searchTerm]
     );
 
+    useEffect(function () {
+        axios.get("/trending-movies").then(({ data }) => {
+            console.log("trending", data.trending);
+            setTrendingMovies(data.trending);
+        });
+    }, []);
+
     function changeHandler({ target }) {
-        setSearchTerm(target.value);
+        if (!target.value) {
+            setResultMovies(null);
+        }
+        setSearchTerm(target.value || null);
         console.log(target.value);
     }
-    const toggleTrueFalse = (event) => {
-        event.preventDefault();
-        setToggled(!isToggled);
-    };
+
+    // const clickMovie = ({ target }) => {
+    //     console.log("Grace clicked!", target.previousSibling);
+    //     return (
+    //         <div className="find-movies">
+    //             <h4>See this?</h4>;
+    //         </div>
+    //     );
+    // };
 
     return (
         <div className="find-movies">
             <div className="find-movies-search">
                 Have a movie in mind?
-                <input defaultValue="" onChange={changeHandler}></input>
+                {/* document.createElement('INPUT').value =="" // true */}
+                <input defaultValue=" " onChange={changeHandler}></input>
             </div>
 
             {trendingMovies && !searchTerm && (
@@ -53,22 +63,17 @@ export default function FindMovies() {
                     trendingMovies.map(function (movie) {
                         return (
                             <div key={movie.id}>
-                                <img
-                                    src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
-                                />
+                                <Link
+                                    to={`/movie-info/${movie.media_type}/${movie.id}`}
+                                >
+                                    <img
+                                        src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                                    />
+                                </Link>
+
                                 <div className="movie-name-link">
-                                    <h4 onClick={toggleTrueFalse}>
-                                        {movie.title}
-                                    </h4>
+                                    <h4>{movie.title}</h4>
                                 </div>
-                                {isToggled && (
-                                    <div id="movie-info">
-                                        {movie.overview}
-                                        <button onClick={toggleTrueFalse}>
-                                            CLOSE
-                                        </button>
-                                    </div>
-                                )}
                             </div>
                         );
                     })}
@@ -80,7 +85,15 @@ export default function FindMovies() {
 
                         return (
                             <div key={movie.id}>
-                                <img src={imageUrl} onClick={toggleTrueFalse} />
+                                <Link
+                                    to={`/movie-info/${movie.media_type}/${movie.id}`}
+                                >
+                                    <img
+                                        src={imageUrl}
+                                        onClick={toggleTrueFalse}
+                                    />
+                                </Link>
+
                                 <div className="movie-name-link">
                                     <h4 onClick={toggleTrueFalse}>
                                         {movie.title}

@@ -111,46 +111,57 @@ let genres_list = [
     { id: 37, name: "Western" },
 ];
 
-// const buildObject = (genres_list) => {
-//     const obj = {};
-//     for (let i = 0; i < genres_list.length; i++) {
-//         const { id, name } = genres_list[i];
-//         obj[id] = name;
-//     }
-//     return obj;
-// };
-// let genres = buildObject(genres_list);
+// // const buildObject = (genres_list) => {
+// //     const obj = {};
+// //     for (let i = 0; i < genres_list.length; i++) {
+// //         const { id, name } = genres_list[i];
+// //         obj[id] = name;
+// //     }
+// //     return obj;
+// // };
+// // let genres = buildObject(genres_list);
 
-// for (i = 0; i < results.length; i++) {
-//     let genre_ids = results[i].genre_ids;
-//     for (j = 0; j < genre_ids.length; j++) {
-//         let search_id = genre_ids[j];
-//         if (genres[search_id]) {
-//             console.log(genres[search_id]);
-//         } else {
-//             console.log("Surprise");
-//         }
-//     }
+// // for (i = 0; i < results.length; i++) {
+// //     let genre_ids = results[i].genre_ids;
+// //     for (j = 0; j < genre_ids.length; j++) {
+// //         let search_id = genre_ids[j];
+// //         if (genres[search_id]) {
+// //             console.log(genres[search_id]);
+// //         } else {
+// //             console.log("Surprise");
+// //         }
+// //     }
+// // }
+
+// const array1 = [1, 4, 9, 16];
+
+// // pass a function to map
+// const map1 = array1.map((x) => x * 2);
+
+// console.log(map1);
+// // expected output: Array [2, 8, 18, 32]
+
+// let testArr = [...results];
+
+// const mapTitleName = (arr) => {
+//     arr = arr.map((movie) => {
+//         return {
+//             ...movie,
+//             title: movie.title || movie.name,
+//         };
+//     });
+//     return arr;
+// };
+
+// console.log(mapTitleName(testArr));
+
+let a = -1;
+// if (a < 0) {
+//     console.log(true);
+// } else {
+//     console.log(false);
 // }
 
-const array1 = [1, 4, 9, 16];
-
-// pass a function to map
-const map1 = array1.map((x) => x * 2);
-
-console.log(map1);
-// expected output: Array [2, 8, 18, 32]
-
-let testArr = [...results];
-
-const mapTitleName = (arr) => {
-    arr = arr.map((movie) => {
-        return {
-            ...movie,
-            title: movie.title || movie.name,
-        };
-    });
-    return arr;
-};
-
-console.log(mapTitleName(testArr));
+let left = a > 0 ? true : false;
+//if minus false
+console.log(left);
