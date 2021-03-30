@@ -30,9 +30,9 @@ CREATE TABLE movies (
     title VARCHAR NOT NULL CHECK (title <> ''),
     media_type VARCHAR NOT NULL CHECK (media_type <> ''),
     api_id INTEGER,
+    image_url VARCHAR DEFAULT 'movie.png',
     watched BOOLEAN DEFAULT false,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
-
 );
 
 -- INSERT INTO movies (user_id, title, media_type, api_id, watched)

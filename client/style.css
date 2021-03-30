@@ -57,10 +57,10 @@ div#welcome button {
 
 #profile,
 .other-profile,
-.movie-info {
+.movie-info,
+.mini-movie-list-container {
     width: 320px;
     margin: 10px;
-    margin-top: -10px;
     padding: 10px;
     border: black solid 1px;
     background: #d9d9f4;
@@ -71,7 +71,8 @@ div#welcome button {
 #profile img,
 .find-people img,
 .other-profile img,
-#friends-list img {
+#friends-list img,
+#wannabe-list img {
     width: 200px;
     height: 180px;
     border: solid black 1px;
@@ -88,7 +89,10 @@ div#welcome button {
     z-index: 100;
 }
 
-div.nav-menu {
+div.nav-menu,
+.mini-online-list-container {
+    position: relative;
+    right: 0px;
     width: 200px;
     margin: 10px;
     padding: 10px;
@@ -97,6 +101,10 @@ div.nav-menu {
     text-align: right;
     float: right;
     clear: right;
+}
+
+.mini-online-list-container {
+    text-align: center;
 }
 
 #ticker-box {
@@ -153,7 +161,8 @@ a:hover {
     color: black;
 }
 
-button {
+button,
+p {
     margin: 5px;
     padding: 3px;
     background-color: white;
@@ -165,6 +174,11 @@ button:hover {
     color: black;
 }
 #find-people-results a:nth-child(odd),
+#friends-list a:nth-child(odd),
+#wannabe-list a:nth-child(odd),
+#mini-friends-list a:nth-child(odd),
+#mini-online-list a:nth-child(odd),
+#mini-movie-list a:nth-child(odd),
 div.find-movies div#find-movies-results div a {
     background: none;
     color: inherit;
@@ -174,18 +188,10 @@ div.find-movies div#find-movies-results div a {
     cursor: pointer;
     outline: inherit;
 }
-#find-movies-results img {
+#find-movies-results img,
+#mini-movie-list img {
     width: 200px;
     height: 270px;
-}
-#hidden-movie-info {
-    visibility: hidden;
-    width: 200px;
-    height: 330px;
-    background-color: red;
-    overflow: hidden;
-    position: absolute;
-    z-index: 10;
 }
 
 .find-movies h4 {
@@ -200,11 +206,38 @@ div.find-movies div#find-movies-results div a {
 
 #find-people-results,
 #find-movies-results,
-#friends-list {
-    margin-left: 20px;
+#friends-list,
+#wannabe-list {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-evenly;
+}
+
+#mini-friends-list,
+#mini-online-list,
+#mini-movie-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.mini-friends-list-container {
+    background-color: #00d0dd;
+    margin: 10px;
+    border: solid black 1px;
+}
+
+#mini-friends-list img,
+#mini-online-list img {
+    width: 40px;
+    height: 40px;
+    border: solid black 1px;
+}
+#friends-list,
+#wannabe-list {
+    background-color: #fec87e;
+    margin: 20px;
+    border: #012314 solid 1px;
 }
 
 #find-people-results div {
@@ -212,7 +245,8 @@ div.find-movies div#find-movies-results div a {
 }
 
 .other-profile,
-.movie-info {
+.movie-info,
+.mini-movie-list-container {
     position: relative;
     left: 30%;
     width: 40%;
@@ -226,7 +260,7 @@ div.find-movies div#find-movies-results div a {
     border: solid 1px black;
 }
 
-.movie-info p {
+#main-container div.movie-info p {
     background-color: white;
     padding: 10px;
     margin: 10px;
@@ -288,8 +322,11 @@ div.find-movies div#find-movies-results div a {
     float: left;
     clear: left;
 }
+.mini-movie-list-container {
+    position: absolute;
+}
 
-html body main div#app div#main-container textarea img {
+img {
     object-fit: cover;
 }
 

@@ -4,16 +4,16 @@ const db = spicedPg(
         "postgres:postgres:postgres@localhost:5432/matchmeamovie"
 );
 
-module.exports.addMovie = (user_id, media_type, api_id, title) => {
+module.exports.addMovie = (user_id, media_type, api_id, title, image_url) => {
     const q = `
-    INSERT INTO movies (user_id, media_type, api_id,title)
-    VALUES($1, $2, $3, $4) 
+    INSERT INTO movies (user_id, media_type, api_id, title, image_url)
+    VALUES($1, $2, $3, $4, $5) 
     RETURNING movies;`;
-    const params = [user_id, media_type, api_id, title];
+    const params = [user_id, media_type, api_id, title, image_url];
     return db.query(q, params);
 };
 
-module.exports.getWatchList = (user_id) => {
+module.exports.getMovieList = (user_id) => {
     const q = `
     SELECT * 
     FROM movies 

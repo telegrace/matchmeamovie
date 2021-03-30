@@ -1,13 +1,14 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getFriendsList, acceptRequest, unfriend } from "./actions";
+import { getMovieList, acceptRequest, unfriend } from "./actions";
 import { Link } from "react-router-dom";
 
-export default function Friends() {
+export default function MovieList() {
     const dispatch = useDispatch();
 
     useEffect(() => {
-        dispatch(getFriendsList());
+        dispatch(getMovieList());
+        console.log("GRACE");
     }, []);
 
     const friend = useSelector(
@@ -25,24 +26,19 @@ export default function Friends() {
 
     return (
         <div className="find-people">
-            <h1>Friends</h1>
+            <h1>To Watch</h1>
             <div id="friends-list">
                 <br></br>
                 {friend.map((friend) => (
                     <div className="unfriend" key={friend.id}>
-                        <Link to={`/user/${friend.id}`}>
-                            <img src={friend.profile_pic} />
-                        </Link>
-                        <p>
-                            {friend.name} {friend.surname}
-                        </p>
+                        <p>{friend.title}</p>
                         <button onClick={() => dispatch(unfriend(friend.id))}>
                             UNFRIEND
                         </button>
                     </div>
                 ))}
             </div>
-            <h1>Friends Requests</h1>
+            <h1>Already Seen</h1>
             <div id="wannabe-list">
                 {wannabe.map((friend) => (
                     <div className="accept-list" key={friend.id}>

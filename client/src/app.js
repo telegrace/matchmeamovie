@@ -10,9 +10,10 @@ import OtherProfile from "./otherProfile";
 import FindPeople from "./findPeople";
 import FindMovies from "./findMovies";
 import Friends from "./friends";
-import WatchList from "./watchList";
+import MovieList from "./movieList";
 import MovieInfo from "./movieInfo";
 import Chat from "./chat";
+import MiniOnlineUsers from "./miniOnlineUsers";
 
 //bio_info is for SQL only !
 
@@ -99,22 +100,6 @@ export default class App extends Component {
                     <div id="ticker-box">
                         <TopTen />
                     </div>
-                    <div className="nav-menu">
-                        <Link to="/movies">FIND MOVIES</Link>
-                        <br></br>
-                        <Link to="/watchlist">YOUR WATCHLIST</Link>
-                        <br></br>
-                        <Link to="/users">FIND PEOPLE</Link>
-                        <br></br>
-                        <Link to="/get-friendslist/">FRIENDS</Link>
-                        <br></br>
-                        <Link to="/">MY PROFILE</Link>
-                        <br></br>
-
-                        <Link to="/chat/">CHAT</Link>
-                        <br></br>
-                        <button onClick={() => this.logout()}>LOGOUT</button>
-                    </div>
                     <br></br>
 
                     {this.state.uploaderIsVisible && (
@@ -143,6 +128,7 @@ export default class App extends Component {
                                 />
                             )}
                         />
+
                         <Route
                             path="/user/:id"
                             render={(props) => (
@@ -153,10 +139,7 @@ export default class App extends Component {
                                 />
                             )}
                         />
-                        <Route
-                            path="/users/"
-                            render={(props) => <FindPeople />}
-                        />
+
                         <Route
                             path="/movie-info/:media_type/:id"
                             render={(props) => (
@@ -168,9 +151,33 @@ export default class App extends Component {
                             )}
                         />
 
+                        <div className="nav-menu">
+                            <Link to="/movies">FIND MOVIES</Link>
+                            <br></br>
+                            <Link to="/get-movielist">YOUR MOVIE</Link>
+                            <br></br>
+                            <Link to="/users">FIND PEOPLE</Link>
+                            <br></br>
+                            <Link to="/get-friendslist/">FRIENDS</Link>
+                            <br></br>
+                            <Link to="/">MY PROFILE</Link>
+                            <br></br>
+
+                            <Link to="/chat/">CHAT</Link>
+                            <br></br>
+                            <button onClick={() => this.logout()}>
+                                LOGOUT
+                            </button>
+                        </div>
+                        <MiniOnlineUsers />
+
                         <Route path="/get-friendslist/" component={Friends} />
-                        <Route path="/watchlist/" component={WatchList} />
+                        <Route path="/get-movielist/" component={MovieList} />
                         <Route path="/movies/" component={FindMovies} />
+                        <Route
+                            path="/users/"
+                            render={(props) => <FindPeople />}
+                        />
                         <Route path="/chat/" component={Chat} />
                     </div>
                 </div>

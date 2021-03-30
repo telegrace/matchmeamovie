@@ -1,6 +1,13 @@
-// expport all our action creator functions
-// a function that returns an object for friendsList?
+// export all our action creator functions
 import axios from "./axios";
+
+export async function getMovieList() {
+    const { data } = await axios.get("/api/get-movielist");
+    return {
+        type: "GET_MOVIELIST",
+        movieList: data.movies,
+    };
+}
 
 export async function getFriendsList() {
     const { data } = await axios.get("/api/get-friendslist");

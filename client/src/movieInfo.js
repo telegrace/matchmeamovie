@@ -1,6 +1,5 @@
-import { Component, useCallback } from "react";
+import { Component } from "react";
 import axios from "./axios";
-import MovieButton from "./movieButton";
 
 export default class MovieInfo extends Component {
     constructor(props) {
@@ -31,6 +30,7 @@ export default class MovieInfo extends Component {
                 this.setState({
                     title: data.movie_data.title,
                     image: `https://image.tmdb.org/t/p/w200${data.movie_data.poster_path}`,
+                    poster_path: data.movie_data.poster_path,
                     overview: data.movie_data.overview,
                     language: data.movie_data.original_language,
                     vote_average: data.movie_data.vote_average,
@@ -60,6 +60,13 @@ export default class MovieInfo extends Component {
                 } else {
                     this.setState({ left: false });
                     this.setState({ right: true });
+                    axios
+                        .post(
+                            `/api/add-movie/${this.props.match.params.media_type}/${this.props.match.params.id}/${this.state.title}/${this.state.poster_path}`
+                        )
+                        .then(({ data }) => {
+                            console.log(data);
+                        });
                 }
             });
         } else {
@@ -71,13 +78,15 @@ export default class MovieInfo extends Component {
                 } else {
                     this.setState({ left: false });
                     this.setState({ right: true });
+                    axios
+                        .post(
+                            `/api/add-movie/${this.props.match.params.media_type}/${this.props.match.params.id}/${this.state.title}/${this.state.poster_path}`
+                        )
+                        .then(({ data }) => {
+                            console.log(data);
+                        });
                 }
             });
-        }
-        if (this.state.right) {
-            axios.post(
-                `/api/add-movie/${this.props.match.params.media_type}/${this.props.match.params.id}/${this.state.title}`
-            );
         }
     }
 

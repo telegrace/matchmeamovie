@@ -85,7 +85,6 @@ router.get("/trending-movies", (req, res) => {
 });
 
 router.get("/api/movie/:searchTerm", (req, res) => {
-    console.log("GRACE", req.params.searchTerm);
     axios
         .get(
             `https://api.themoviedb.org/3/search/movie?api_key=${key}&query=${req.params.searchTerm}`
@@ -122,33 +121,40 @@ router.get("/api/movie-info/:media_type/:id", (req, res) => {
         });
 });
 
-router.post("/api/add-movie/:media_type/:id/:title", (req, res) => {
+router.post("/api/add-movie/:media_type/:id/:title/:image", (req, res) => {
     console.log("User swiped right", req.session.userId);
     movie_db
         .addMovie(
             req.session.userId,
             req.params.media_type,
             req.params.id,
-            req.params.title
+            req.params.title,
+            req.params.image
         )
         .then(({ rows }) => {
             console.log(rows[0]);
+            res.json({ data: rows[0] });
         });
 });
 
-router.post("/watchlist", (req, res) => {
+// router.post("/api/:id/get-movielist", (req, res) => {
+//     console.log("get", req.session.userId);
+//     movie_db.getMovieList(req.params.id).then(({ rows }) => {
+//         res.json({
+//             movies: rows,
+//             success: true,
+//         });
+//     });
+// });
+
+router.get("/api/get-movielist", (req, res) => {
     console.log("get", req.session.userId);
-    // movie_db
-    //     .getWatchList(
-    //         req.session.userId,
-    //         req.params.media_type,
-    //         req.params.id,
-    //         req.params.title
-    //     )
-    //     .then(({ rows }) => {
-    //         console.log(rows[0]);
-    //     });
-    res.json({ success: true });
+    movie_db.getMovieList(req.params.id).then(({ rows }) => {
+        res.json({
+            movies: rows,
+            success: true,
+        });
+    });
 });
 
 exports.router = router;

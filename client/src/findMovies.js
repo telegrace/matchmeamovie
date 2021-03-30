@@ -34,15 +34,6 @@ export default function FindMovies() {
         console.log(target.value);
     }
 
-    // const clickMovie = ({ target }) => {
-    //     console.log("Grace clicked!", target.previousSibling);
-    //     return (
-    //         <div className="find-movies">
-    //             <h4>See this?</h4>;
-    //         </div>
-    //     );
-    // };
-
     return (
         <div className="find-movies">
             <div className="find-movies-search">

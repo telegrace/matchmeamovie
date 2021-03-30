@@ -70,3 +70,5 @@ export default class BioEditor extends Component {
         );
     }
 }
+
+<textarea />;

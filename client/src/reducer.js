@@ -1,5 +1,13 @@
 export function reducer(state = {}, action) {
     //series of if statements:
+
+    if (action.type === "GET_MOVIELIST") {
+        state = {
+            ...state,
+            movies: action.movieList,
+        };
+    }
+
     if (action.type === "GET_FRIENDSLIST") {
         state = {
             ...state,
