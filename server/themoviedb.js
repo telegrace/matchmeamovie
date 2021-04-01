@@ -45,6 +45,10 @@ const findGenre = (arr) => {
 
 let genres;
 
+///////////////////
+//////routes///////
+///////////////////
+
 router.get("/top-ten-today", (req, res) => {
     axios
         .get(`https://api.themoviedb.org/3/genre/movie/list?api_key=${key}`)
@@ -149,14 +153,34 @@ router.post("/api/add-movie/:media_type/:id/:title/:image", (req, res) => {
 
 router.get("/api/get-movielist", (req, res) => {
     console.log("get", req.session.userId);
-    movie_db.getMovieList(req.params.id).then(({ rows }) => {
+    movie_db.getMovieList(req.session.userId).then(({ rows }) => {
+        console.log("GRACE", rows);
         res.json({
             movies: rows,
-            success: true,
         });
     });
 });
 
+router.get("/api/all-get-movielist", (req, res) => {
+    console.log("get", req.session.userId);
+    movie_db.getAllMovieList(req.session.userId).then(({ rows }) => {
+        console.log("GRACE", rows);
+        res.json({
+            movies: rows,
+        });
+    });
+});
+
+router.get("/api/other-movie-list/:recipient_id", (req, res) => {
+    console.log("OTHER GRACE", req.params.recipient_id);
+    movie_db.getAllMovieList(req.params.recipient_id).then(({ rows }) => {
+        console.log("GRACE", rows);
+        res.json({
+            movies: rows,
+        });
+    });
+});
+// watchedTrueOrFalse;
 exports.router = router;
 
 //for practice         .get(`https://restcountries.eu/rest/v2/all`)
