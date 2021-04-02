@@ -14,10 +14,11 @@ module.exports.addMovie = (user_id, media_type, api_id, title, image_url) => {
 };
 
 module.exports.delMovie = (user_id, api_id) => {
+    //this del all cases
     const q = `
     DELETE FROM movies
-    WHERE user_id = $1 AND api_id =  $2
-    VALUES($1, $2, $3, $4, $5) 
+    WHERE user_id = $1 AND api_id = $2
+    VALUES($1, $2) 
     RETURNING movies;`;
     const params = [user_id, api_id];
     return db.query(q, params);
@@ -45,12 +46,21 @@ module.exports.getAllMovieList = (user_id) => {
     return db.query(q, params);
 };
 
+module.exports.getMovieComments = (media_type, api_id) => {
+    const q = `
+    SELECT * 
+    FROM movies 
+    WHERE media_type= $1 AND api_id = $2
+    ;`;
+    const params = [media_type, api_id];
+    return db.query(q, params);
+};
+
 module.exports.watchedTrueOrFalse = (boolean, user_id, api_id) => {
     const q = `
     UPDATE movies
     SET watched = $1, created_at = CURRENT_TIMESTAMP
     WHERE user_id = $2 AND api_id = $3
-    VALUES($1, $2, $3)
     RETURNING * 
     ;`;
     const params = [boolean, user_id, api_id];

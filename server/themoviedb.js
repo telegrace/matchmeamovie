@@ -172,7 +172,6 @@ router.get("/api/all-get-movielist", (req, res) => {
 });
 
 router.get("/api/other-movie-list/:recipient_id", (req, res) => {
-    console.log("OTHER GRACE", req.params.recipient_id);
     movie_db.getAllMovieList(req.params.recipient_id).then(({ rows }) => {
         console.log("GRACE", rows);
         res.json({
@@ -180,7 +179,20 @@ router.get("/api/other-movie-list/:recipient_id", (req, res) => {
         });
     });
 });
+
 // watchedTrueOrFalse;
+router.post("/api/seen-already/:api_id", (req, res) => {
+    console.log("OTHER GRACE", req.session.userId, req.params.api_id);
+    movie_db
+        .watchedTrueOrFalse(true, req.session.userId, req.params.api_id)
+        .then(({ rows }) => {
+            console.log("GRACE", rows);
+            res.json({
+                movies: rows,
+            });
+        });
+});
+
 exports.router = router;
 
 //for practice         .get(`https://restcountries.eu/rest/v2/all`)
